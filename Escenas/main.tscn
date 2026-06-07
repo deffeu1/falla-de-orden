@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://doi3wy70dtlme"]
+
+[ext_resource type="Script" uid="uid://dkak5cekdu450" path="res://scripts/main.gd" id="1_vt1rs"]
+[ext_resource type="PackedScene" uid="uid://dovas376kefi0" path="res://escenarios/escenario fallo.glb" id="2_0kh0y"]
+
+[node name="main" type="Node3D" unique_id=825403201]
+script = ExtResource("1_vt1rs")
+
+[node name="escenario fallo" parent="." unique_id=814273304 instance=ExtResource("2_0kh0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9758934, 1.1920929e-07, -0.6448052)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1095965636]
+transform = Transform3D(0.001047194, 0, 0.99999946, 0, 1, 0, -0.99999946, 0, 0.001047194, 21.079782, 6.5718565, 1.0636988)
+current = true
+fov = 65.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1056816891]
+transform = Transform3D(0.70874625, 0.025100218, 0.7050168, -0.70546347, 0.025217019, 0.7082975, 0, -0.9993668, 0.035579756, 12.78779, 8.303098, 0)
+light_color = Color(0.94105214, 0.9651266, 0.44762993, 1)
+light_energy = 0.135
+light_indirect_energy = 3.78
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1459001727]
+transform = Transform3D(1, 0, 0, 0, -0.39959723, 0.9166909, 0, -0.9166909, -0.39959723, 0, 12.303198, 19.87461)
+light_color = Color(0.9490196, 0, 0.015686275, 1)
+light_energy = 1.145
+light_indirect_energy = 3.774
+light_volumetric_fog_energy = 1.696
+
+[node name="SpawnPoint" type="Marker3D" parent="." unique_id=764572994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9720712, 2.1615834, -24.118137)
+
+[node name="Timer" type="Timer" parent="." unique_id=1868201819]
+wait_time = 4.3660000000000005
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

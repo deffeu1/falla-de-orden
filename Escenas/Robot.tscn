@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://culf82ven2kyf"]
+
+[ext_resource type="Script" uid="uid://dmfpsgurd45f3" path="res://scripts/robot.gd" id="1_5vcy5"]
+[ext_resource type="PackedScene" uid="uid://d2psn0m6pfjbr" path="res://Robots/robot sano.glb" id="2_epo3j"]
+[ext_resource type="PackedScene" uid="uid://5fqrjfxuhxbr" path="res://Robots/robot dañado4.glb" id="3_u5f32"]
+[ext_resource type="PackedScene" uid="uid://k8thuhvbt8uo" path="res://Robots/robot dañado3.glb" id="4_1prjr"]
+[ext_resource type="PackedScene" uid="uid://thn2y8aygew5" path="res://Robots/robot dañado2.glb" id="5_gd2c4"]
+[ext_resource type="PackedScene" uid="uid://dn3at5d7bxayp" path="res://Robots/robot dañado1.glb" id="6_w4sna"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gv0v2"]
+size = Vector3(2.6538086, 9.115614, 4.993038)
+
+[node name="robot" type="CharacterBody3D" unique_id=1179850443]
+script = ExtResource("1_5vcy5")
+modelos_sanos = Array[PackedScene]([ExtResource("2_epo3j")])
+modelos_rotos = Array[PackedScene]([ExtResource("3_u5f32"), ExtResource("4_1prjr"), ExtResource("5_gd2c4"), ExtResource("6_w4sna")])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2043812816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9909668, 7.348402, -1.5735197)
+shape = SubResource("BoxShape3D_gv0v2")
