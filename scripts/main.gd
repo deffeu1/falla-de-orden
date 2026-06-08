@@ -13,34 +13,25 @@ func _on_timer_timeout():
 	
 	# 3. AHORA SÍ le asignamos la posición del spawnpoint
 	nuevo_robot.global_position = spawn_point.global_position
-	
 
 
-func _on_zona_fuga_body_entered(body):
-	# Preguntamos si lo que entró a la zona es un Robot
-	if body.has_method("_input_event"): 
+# --- FUNCIÓN CORREGIDA Y UNIFICADA ---
+func _on_zona_fuga_body_entered(body: Node3D) -> void:
+	# Preguntamos si el objeto que entró es un robot (tus robots son CharacterBody3D)
+	if body is CharacterBody3D: 
 		
-		# Buscamos la interfaz para poder actualizar el marcador
-		var interfaz = get_node_or_null("Interfaz")
-		
-		# Si el robot era de los MALOS y se nos escapó...
+		# Si el robot que se escapó era MALO/DEFECTUOSO...
 		if not body.es_bueno:
-			print("¡Se escapó un robot roto de la fábrica!")
+			print("¡Se escapó un robot defectuoso! (+1 Error)")
+			var interfaz = get_node_or_null("/root/main/Interfaz")
 			if interfaz:
-				interfaz.sumar_error()
-		
-		# --- ¡ACÁ SE HACE EL CAMBIO! ---
-		# Si el robot era de los BUENOS y llegó al final con éxito...
+				interfaz.sumar_error() # Te suma un error a tus vidas
 		else:
+			# Si era un robot sano, se despacha bien
 			print("¡Robot sano despachado correctamente! (+1 Punto)")
+			var interfaz = get_node_or_null("/root/main/Interfaz")
 			if interfaz:
-				interfaz.sumar_punto() # <--- Sumamos punto por dejarlo pasar
+				interfaz.sumar_punto() # ¡Te suma un punto por dejarlo pasar!
 		
-		# En ambos casos, borramos al robot del juego para liberar memoria
+		# Al final, borramos el robot del juego para que no siga cayendo al infinito
 		body.queue_free()
-		
-#func _ready():
-	# (Acá tenés tu código actual de los Timers y configuraciones...)
-
-	# Ocultamos el cursor y lo bloqueamos al centro del juego
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

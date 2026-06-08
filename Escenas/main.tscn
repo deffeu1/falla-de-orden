@@ -32,7 +32,7 @@ size = 14.108
 near = 0.11
 far = 3997.25
 script = ExtResource("4_2ia52")
-limite_vertical = 20.0
+limite_vertical = 30.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1056816891]
 transform = Transform3D(0.13046852, -0.0015582863, 0.99145126, -0.89452255, 0.43106043, 0.11839085, -0.4275599, -0.9023219, 0.05484589, 15.91254, 11.673742, 0.51960063)
@@ -50,7 +50,7 @@ wait_time = 4.3660000000000005
 autostart = true
 
 [node name="ZonaFuga" type="Area3D" parent="." unique_id=798310993]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 54.0202)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 55.47972)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaFuga" unique_id=1986784538]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81336117, 7.749715, -33.98314)

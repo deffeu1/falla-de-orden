@@ -35,33 +35,32 @@ func _physics_process(_delta):
 	velocity = Vector3(0, 0, velocidad)
 	move_and_slide()
 
-# Esta función detecta los clicks del mouse sobre el CollisionShape3D del robot
-func _input_event(_camera, event, _click_position, _normal, _shape_idx):
-	# Si el robot ya se está borrando o no está en el mapa, salimos
+
+# --- NUEVA FUNCIÓN: La cámara llama a esto directamente con el Raycast ---
+func destruir():
+	# Si el robot ya se está borrando, salimos para evitar doble click
 	if is_queued_for_deletion() or not is_inside_tree():
 		return
 
-	# ¿El jugador hizo click (apretando el botón)?
-	if event is InputEventMouseButton and event.pressed:
-		
-		# --- CLICK IZQUIERDO ÚNICO: Se usa para DESCARTAR/DESTRUIR el robot ---
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			var posicion_actual = global_transform.origin
-			var interfaz = get_node_or_null("/root/main/Interfaz")
-			
-			if not es_bueno:
-				# ¡Correcto! Destruiste un robot roto antes de que se escape
-				print("¡Correcto! Robot defectuoso destruido. (+1 Punto)")
-				if interfaz: interfaz.sumar_punto()
-			else:
-				# ¡Error! Rompiste un robot que estaba perfecto
-				print("¡Error! Destruiste un robot SANO.(+1 Error)")
-				if interfaz: interfaz.sumar_error()
-			
-			# Efecto de explosión (vuela en cubitos low-poly)
-			var nueva_explosion = explosion_scene.instantiate()
-			nueva_explosion.global_position = posicion_actual + Vector3(0, 6.0, -4)
-			get_tree().current_scene.add_child(nueva_explosion)
-			
-			# Borramos el robot del juego
-			queue_free()
+	var posicion_actual = global_transform.origin
+	var interfaz = get_node_or_null("/root/main/Interfaz")
+	
+	if not es_bueno:
+		# ¡Correcto! Destruiste un robot roto antes de que se escape
+		print("¡Correcto! Robot defectuoso destruido. (+1 Punto)")
+		if interfaz: 
+			interfaz.sumar_punto()
+	else:
+		# ¡Error! Rompiste un robot que estaba perfecto
+		print("¡Error! Destruiste un robot SANO. (+1 Error)")
+		if interfaz: 
+			interfaz.sumar_error()
+	
+	# Efecto de explosión (vuela en cubitos low-poly)
+	var nueva_explosion = explosion_scene.instantiate()
+	# Le sumamos un poquito en el eje Y para que la explosión salga del centro del robot
+	nueva_explosion.global_position = posicion_actual + Vector3(0, 6.0, -4) 
+	get_tree().current_scene.add_child(nueva_explosion)
+	
+	# Borramos el robot del juego
+	queue_free()

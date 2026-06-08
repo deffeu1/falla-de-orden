@@ -12,6 +12,9 @@ func _ready():
 	# Nos aseguramos de que el cartel empiece oculto al reiniciar
 	pantalla_game_over.visible = false
 	actualizar_pantalla()
+	# Si estamos en el menú principal, arranca invisible
+	if get_tree().current_scene.name == "MenuPrincipal":
+		visible = false
 
 func sumar_punto():
 	puntos += 1
