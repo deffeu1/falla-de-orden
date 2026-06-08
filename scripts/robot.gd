@@ -59,8 +59,8 @@ func destruir():
 	# Efecto de explosión (vuela en cubitos low-poly)
 	var nueva_explosion = explosion_scene.instantiate()
 	# Le sumamos un poquito en el eje Y para que la explosión salga del centro del robot
-	nueva_explosion.global_position = posicion_actual + Vector3(0, 6.0, -4) 
-	get_tree().current_scene.add_child(nueva_explosion)
 	
+	get_tree().current_scene.add_child(nueva_explosion)
+	nueva_explosion.global_position = posicion_actual + Vector3(0, 6.0, -4) 
 	# Borramos el robot del juego
 	queue_free()
