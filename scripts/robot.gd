@@ -37,33 +37,38 @@ func _physics_process(_delta):
 
 # Esta función detecta los clicks del mouse sobre el CollisionShape3D del robot
 func _input_event(_camera, event, _click_position, _normal, _shape_idx):
-	# ¿El jugador hizo un click?
+	# 1. Si el robot ya se está borrando o no está en el mapa, salimos ya mismo
+	if is_queued_for_deletion() or not is_inside_tree():
+		return
+
+	# 2. ¿El jugador está haciendo click (apretando el botón)?
 	if event is InputEventMouseButton and event.pressed:
 		
-		# --- CLICK IZQUIERDO: El jugador dice que está SANO ---
+		# Guardamos la posición AL PRINCIPIO de todo, cuando el robot está 100% vivo
+		var posicion_actual = global_transform.origin
+		var interfaz = get_node_or_null("/root/main/Interfaz")
+		
+		# --- CLICK IZQUIERDO: SANO ---
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if es_bueno:
-				print("¡Correcto! Dejaste pasar un robot sano.")
+				if interfaz: interfaz.sumar_punto()
 			else:
-				print("¡Error! Dejaste pasar un robot ROTO.")
+				if interfaz: interfaz.sumar_error()
 			
-			# Borra el robot del juego inmediatamente
-			queue_free() 
+			# Borramos al final de la acción
+			queue_free()
 			
-		# --- CLICK DERECHO: El jugador dice que está ROTO ---
+		# --- CLICK DERECHO: ROTO ---
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			if not es_bueno:
-				print("¡Correcto! Descartaste un robot defectuoso.")
+				if interfaz: interfaz.sumar_punto()
 			else:
-				print("¡Error! Descartaste un robot que estaba SANO.")
+				if interfaz: interfaz.sumar_error()
 			
-			# --- ¡ACÁ VA LA EXPLOSIÓN! ---
-			# 1. Creamos la copia de la explosión
+			# Creamos la explosión usando la variable segura que guardamos arriba
 			var nueva_explosion = explosion_scene.instantiate()
-			# 2. La ponemos en la misma posición exacta del robot actual
-			nueva_explosion.global_position = self.global_position + Vector3(0, 6.0, -4)
-			# 3. La metemos al escenario principal del juego
-			get_parent().add_child(nueva_explosion)
+			nueva_explosion.global_position = posicion_actual + Vector3(0, 6.0, -4)
+			get_tree().current_scene.add_child(nueva_explosion)
 			
-			# Borra el robot del juego inmediatamente
+			# Borramos al final de la acción
 			queue_free()

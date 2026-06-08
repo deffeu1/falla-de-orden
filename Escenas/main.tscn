@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dkak5cekdu450" path="res://scripts/main.gd" id="1_vt1rs"]
 [ext_resource type="PackedScene" uid="uid://dovas376kefi0" path="res://escenarios/escenario fallo.glb" id="2_0kh0y"]
+[ext_resource type="PackedScene" uid="uid://c1s1n8m1wbax4" path="res://Escenas/Interfaz.tscn" id="2_7xwpo"]
 
 [node name="main" type="Node3D" unique_id=825403201]
 script = ExtResource("1_vt1rs")
+
+[node name="Interfaz" parent="." unique_id=1239421756 instance=ExtResource("2_7xwpo")]
 
 [node name="escenario fallo" parent="." unique_id=814273304 instance=ExtResource("2_0kh0y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9758934, 1.1920929e-07, -0.6448052)
