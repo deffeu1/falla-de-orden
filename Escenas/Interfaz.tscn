@@ -83,4 +83,70 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="PantallaPausa" type="Control" parent="." unique_id=1676515975]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PantallaPausa" unique_id=1360425551]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5764706)
+
+[node name="BotonReanudar" type="Button" parent="PantallaPausa" unique_id=1286791758]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43114588
+anchor_top = 0.22685185
+anchor_right = 0.53152776
+anchor_bottom = 0.32114813
+offset_left = 0.3199463
+offset_right = -0.32000732
+offset_bottom = -0.10400009
+grow_horizontal = 2
+text = "reanudar"
+metadata/_edit_use_anchors_ = true
+
+[node name="BotonReiniciarPausa" type="Button" parent="PantallaPausa" unique_id=21739998]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4042396
+anchor_top = 0.4752284
+anchor_right = 0.5619063
+anchor_bottom = 0.52322847
+offset_left = 0.315979
+offset_top = 0.052001953
+offset_right = -0.31604004
+offset_bottom = -0.05203247
+grow_horizontal = 2
+grow_vertical = 2
+text = "Reiniciar fabrica"
+metadata/_edit_use_anchors_ = true
+
+[node name="BotonVolverMenu" type="Button" parent="PantallaPausa" unique_id=1311722951]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00018056233
+anchor_top = 0.9197531
+anchor_right = 0.13125695
+anchor_bottom = 0.99553084
+offset_left = 0.20800781
+offset_right = -0.20800781
+offset_bottom = -0.10400009
+grow_horizontal = 2
+text = "Volver al menú"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="PantallaGameOver/ContenedorGO/BotonReiniciar" to="." method="_on_boton_reiniciar_pressed"]
+[connection signal="pressed" from="PantallaPausa/BotonReanudar" to="." method="_on_boton_reanudar_pressed"]
+[connection signal="pressed" from="PantallaPausa/BotonReiniciarPausa" to="." method="_on_boton_reiniciar_pausa_pressed"]
+[connection signal="pressed" from="PantallaPausa/BotonVolverMenu" to="." method="_on_boton_volver_menu_pressed"]

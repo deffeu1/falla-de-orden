@@ -7,7 +7,7 @@ var errores : int = 0
 # Vinculamos los nuevos nodos del cartel
 @onready var pantalla_game_over = $PantallaGameOver
 @onready var texto_puntaje_final = $PantallaGameOver/ContenedorGO/TextoPuntajeFinal
-
+@onready var pantalla_pausa = $PantallaPausa
 func _ready():
 	# Nos aseguramos de que el cartel empiece oculto al reiniciar
 	pantalla_game_over.visible = false
@@ -51,3 +51,34 @@ func _on_boton_reiniciar_pressed():
 	print("¡Click detectado! Reiniciando fábrica...") # <- Agregamos este print para probar
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+func _input(event):
+	# Si presionás ESCAPE y NO perdiste (Game Over invisible)
+	if event.is_action_pressed("ui_cancel") and not pantalla_game_over.visible:
+		toggle_pausa()
+
+func toggle_pausa():
+	# Invertimos el estado de pausa (si estaba pausado, pasa a falso, y viceversa)
+	var nuevo_estado = !get_tree().paused
+	get_tree().paused = nuevo_estado
+	
+	# Mostramos u ocultamos el menú visual
+	pantalla_pausa.visible = nuevo_estado
+	
+	# Manejamos el mouse según el estado
+	if nuevo_estado:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)   # Mostramos el mouse para clickear botones
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Ocultamos el mouse para seguir jugando
+# 1. BOTÓN REANUDAR
+func _on_boton_reanudar_pressed():
+	toggle_pausa() # Cerramos la pausa y devolvemos el mouse a la normalidad
+
+# 2. BOTÓN REINICIAR DESDE PAUSA
+func _on_boton_reiniciar_pausa_pressed():
+	get_tree().paused = false # ¡Es clave despausar antes de recargar!
+	get_tree().reload_current_scene()
+
+# 3. BOTÓN VOLVER AL MENÚ
+func _on_boton_volver_menu_pressed():
+	get_tree().paused = false # ¡Es clave despausar antes de cambiar de escena!
+	get_tree().change_scene_to_file("res://Escenas/MenuPrincipal.tscn") # Ajustá la ruta si es distinta
