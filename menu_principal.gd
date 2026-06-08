@@ -34,3 +34,7 @@ func _on_boton_jugar_pressed():
 	# 4. Arrancamos el juego (Acá va tu código actual para cambiar de escena o activar el juego)
 	# Si estás usando cambio de escena:
 	get_tree().change_scene_to_file("res://Escenas/main.tscn")
+# Función para cerrar el juego por completo
+func _on_boton_salir_pressed() -> void:
+	print("Cerrando el juego... ¡Hasta la próxima!")
+	get_tree().quit() # <- Esta línea le dice a Godot que cierre la ventana
