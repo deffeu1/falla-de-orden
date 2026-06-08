@@ -10,11 +10,13 @@ collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 0.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1vy6"]
-albedo_color = Color(1, 0.14901961, 0.14117648, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egrr6"]
+albedo_color = Color(0.5122512, 0.24502409, 0.16765958, 1)
+metallic = 0.97
+roughness = 0.34
 
-[sub_resource type="BoxMesh" id="BoxMesh_5obef"]
-material = SubResource("StandardMaterial3D_u1vy6")
+[sub_resource type="SphereMesh" id="SphereMesh_kywif"]
+material = SubResource("StandardMaterial3D_egrr6")
 
 [node name="Explosion" type="GPUParticles3D" unique_id=1484853934]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.81462216, -0.41770923)
@@ -24,5 +26,5 @@ lifetime = 2.29
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_kywif")
-draw_pass_1 = SubResource("BoxMesh_5obef")
+draw_pass_1 = SubResource("SphereMesh_kywif")
 script = ExtResource("1_egrr6")

@@ -61,6 +61,6 @@ func destruir():
 	# Le sumamos un poquito en el eje Y para que la explosión salga del centro del robot
 	
 	get_tree().current_scene.add_child(nueva_explosion)
-	nueva_explosion.global_position = posicion_actual + Vector3(0, 6.0, -4) 
+	nueva_explosion.global_position = posicion_actual + Vector3(0, 8.0, -2) 
 	# Borramos el robot del juego
 	queue_free()
