@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cj8daqbxsqvvy"]
 
 [ext_resource type="Script" uid="uid://od3wa6d1sirp" path="res://menu_principal.gd" id="1_20qv4"]
+[ext_resource type="FontFile" uid="uid://bfqkeu8rw4j68" path="res://Fuentes/Perfect DOS VGA 437.ttf" id="2_i4iwo"]
 [ext_resource type="PackedScene" uid="uid://doi3wy70dtlme" path="res://Escenas/main.tscn" id="2_iq5l4"]
 
 [node name="MenuPrincipal" type="Control" unique_id=1701189064]
@@ -31,14 +32,38 @@ metadata/_edit_use_anchors_ = true
 [node name="Titulo" type="Label" parent="Contenedor" unique_id=2046300641]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.99607843)
+theme_override_fonts/font = ExtResource("2_i4iwo")
+theme_override_font_sizes/font_size = 42
 text = "Falla de Orden"
+
+[node name="otro espacio jeje" type="Label" parent="Contenedor" unique_id=86230253]
+layout_mode = 2
+
+[node name="espaciomjeje" type="Label" parent="Contenedor" unique_id=1177331183]
+layout_mode = 2
 
 [node name="BotonJugar" type="Button" parent="Contenedor" unique_id=416063347]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_focus_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_pressed_color = Color(0.22352941, 0.63529414, 0.078431375, 1)
+theme_override_colors/font_hover_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_fonts/font = ExtResource("2_i4iwo")
+theme_override_font_sizes/font_size = 21
 text = "Iniciar Turno"
 
 [node name="BotonSalir" type="Button" parent="Contenedor" unique_id=1132170496]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_focus_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_pressed_color = Color(0.22352941, 0.63529414, 0.078431375, 1)
+theme_override_colors/font_hover_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_fonts/font = ExtResource("2_i4iwo")
+theme_override_font_sizes/font_size = 21
 text = "Salir"
 
 [node name="main" parent="." unique_id=825403201 instance=ExtResource("2_iq5l4")]

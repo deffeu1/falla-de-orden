@@ -37,6 +37,7 @@ limite_vertical = 20.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1056816891]
 transform = Transform3D(0.13046852, -0.0015582863, 0.99145126, -0.89452255, 0.43106043, 0.11839085, -0.4275599, -0.9023219, 0.05484589, 15.91254, 11.673742, 0.51960063)
+visible = false
 light_color = Color(0.94105214, 0.9651266, 0.44762993, 1)
 light_energy = 0.51
 light_indirect_energy = 3.78
@@ -51,7 +52,7 @@ wait_time = 4.3660000000000005
 autostart = true
 
 [node name="ZonaFuga" type="Area3D" parent="." unique_id=798310993]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 55.47972)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 56.027847)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaFuga" unique_id=1986784538]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81336117, 7.749715, -33.98314)
@@ -79,8 +80,8 @@ spot_angle = 30.070614
 script = ExtResource("4_7xwpo")
 
 [node name="LuzTitilante3" type="SpotLight3D" parent="." unique_id=51403224]
-transform = Transform3D(0.63109565, 0.0054560024, 0.7756858, -0.7757051, 0.0044388776, 0.63108003, -1.4268112e-10, -0.9999752, 0.0070336047, 10.775205, 14.142152, -0.35961723)
-light_color = Color(0.9882353, 1, 0.34901962, 1)
+transform = Transform3D(0.63109565, 0.0054560034, 0.7756859, -0.7757051, 0.0044388776, 0.63108003, -1.4268112e-10, -0.99997526, 0.007033606, 8.532468, 13.512178, 0.25019455)
+light_color = Color(0.9615006, 0.9583531, 0.9577276, 1)
 light_energy = 2.905
 spot_range = 17.479696
 spot_attenuation = -0.67

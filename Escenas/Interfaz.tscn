@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c1s1n8m1wbax4"]
 
 [ext_resource type="Script" uid="uid://c7fpde8f7dtb0" path="res://scripts/Interfaz.gd" id="1_peb2f"]
+[ext_resource type="FontFile" uid="uid://bfqkeu8rw4j68" path="res://Fuentes/Perfect DOS VGA 437.ttf" id="2_cswj6"]
 
 [node name="Interfaz" type="CanvasLayer" unique_id=1239421756]
 process_mode = 3
@@ -18,6 +19,9 @@ offset_right = -0.16000366
 offset_bottom = -0.1760025
 size_flags_horizontal = 0
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_fonts/font = ExtResource("2_cswj6")
+theme_override_font_sizes/font_size = 27
 text = "Puntos: 0"
 
 [node name="TextoErrores" type="Label" parent="." unique_id=1353124679]
@@ -30,6 +34,9 @@ offset_left = 0.32799911
 offset_top = -0.008003235
 offset_right = -0.7440033
 offset_bottom = 0.9599991
+theme_override_colors/font_color = Color(0.85633475, 0.12699533, 0.17421925, 1)
+theme_override_fonts/font = ExtResource("2_cswj6")
+theme_override_font_sizes/font_size = 27
 text = "Errores: 0 / 3"
 metadata/_edit_use_anchors_ = true
 
@@ -41,7 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.011764706, 0.011764706, 0.011764706, 0.64705884)
+color = Color(0.011764706, 0.011764706, 0.011764706, 0.5764706)
 
 [node name="ContenedorGO" type="VBoxContainer" parent="PantallaGameOver" unique_id=856746929]
 layout_mode = 1
@@ -57,15 +64,31 @@ metadata/_edit_use_anchors_ = true
 [node name="TextoCartel" type="Label" parent="PantallaGameOver/ContenedorGO" unique_id=332440578]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "FÁBRICA CLAUSURADA"
+theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_fonts/font = ExtResource("2_cswj6")
+theme_override_font_sizes/font_size = 27
+text = "FABRICA CLAUSURADA"
 
 [node name="TextoPuntajeFinal" type="Label" parent="PantallaGameOver/ContenedorGO" unique_id=523534192]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_fonts/font = ExtResource("2_cswj6")
+theme_override_font_sizes/font_size = 23
 text = "Puntaje Final: 0"
+
+[node name="solo pa separar" type="Label" parent="PantallaGameOver/ContenedorGO" unique_id=1057952700]
+layout_mode = 2
 
 [node name="BotonReiniciar" type="Button" parent="PantallaGameOver/ContenedorGO" unique_id=1472673194]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_focus_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_pressed_color = Color(0.22352941, 0.63529414, 0.078431375, 1)
+theme_override_colors/font_hover_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_fonts/font = ExtResource("2_cswj6")
+theme_override_font_sizes/font_size = 25
 text = "Reiniciar Turno"
 
 [node name="Mira" type="ColorRect" parent="." unique_id=750352229]
@@ -113,7 +136,14 @@ offset_left = 0.3199463
 offset_right = -0.32000732
 offset_bottom = -0.10400009
 grow_horizontal = 2
-text = "reanudar"
+theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_focus_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_pressed_color = Color(0.22352941, 0.63529414, 0.078431375, 1)
+theme_override_colors/font_hover_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_fonts/font = ExtResource("2_cswj6")
+theme_override_font_sizes/font_size = 32
+text = "Reanudar"
 metadata/_edit_use_anchors_ = true
 
 [node name="BotonReiniciarPausa" type="Button" parent="PantallaPausa" unique_id=21739998]
@@ -129,21 +159,35 @@ offset_right = -0.31604004
 offset_bottom = -0.05203247
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_focus_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_pressed_color = Color(0.22352941, 0.63529414, 0.078431375, 1)
+theme_override_colors/font_hover_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_fonts/font = ExtResource("2_cswj6")
+theme_override_font_sizes/font_size = 24
 text = "Reiniciar fabrica"
 metadata/_edit_use_anchors_ = true
 
 [node name="BotonVolverMenu" type="Button" parent="PantallaPausa" unique_id=1311722951]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.00018056233
-anchor_top = 0.9197531
-anchor_right = 0.13125695
-anchor_bottom = 0.99553084
+anchor_left = 0.0024236043
+anchor_top = 0.91820985
+anchor_right = 0.20156945
+anchor_bottom = 0.9939877
 offset_left = 0.20800781
 offset_right = -0.20800781
 offset_bottom = -0.10400009
 grow_horizontal = 2
-text = "Volver al menú"
+theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_focus_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_pressed_color = Color(0.22352941, 0.63529414, 0.078431375, 1)
+theme_override_colors/font_hover_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_fonts/font = ExtResource("2_cswj6")
+theme_override_font_sizes/font_size = 28
+text = "Volver al menu"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="PantallaGameOver/ContenedorGO/BotonReiniciar" to="." method="_on_boton_reiniciar_pressed"]
