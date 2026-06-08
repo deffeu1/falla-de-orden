@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="falla de orden"
-run/main_scene="uid://doi3wy70dtlme"
+run/main_scene="uid://cj8daqbxsqvvy"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

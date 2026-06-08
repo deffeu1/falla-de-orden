@@ -5,6 +5,7 @@
 [node name="Interfaz" type="CanvasLayer" unique_id=1239421756]
 process_mode = 3
 script = ExtResource("1_peb2f")
+max_errores = null
 
 [node name="TextoPuntos" type="Label" parent="." unique_id=287770245]
 anchors_preset = -1

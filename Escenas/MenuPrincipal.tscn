@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cj8daqbxsqvvy"]
+
+[ext_resource type="Script" uid="uid://od3wa6d1sirp" path="res://menu_principal.gd" id="1_20qv4"]
+[ext_resource type="PackedScene" uid="uid://doi3wy70dtlme" path="res://Escenas/main.tscn" id="2_iq5l4"]
+
+[node name="MenuPrincipal" type="Control" unique_id=1701189064]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_20qv4")
+
+[node name="Contenedor" type="VBoxContainer" parent="." unique_id=1634351332]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 9.0
+anchor_top = 6.500001
+anchor_right = 19.525
+anchor_bottom = 10.0
+offset_top = -3.0517578e-05
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="Titulo" type="Label" parent="Contenedor" unique_id=2046300641]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Falla de Orden"
+
+[node name="BotonJugar" type="Button" parent="Contenedor" unique_id=416063347]
+layout_mode = 2
+text = "Iniciar Turno"
+
+[node name="BotonSalir" type="Button" parent="Contenedor" unique_id=1132170496]
+layout_mode = 2
+text = "Salir"
+
+[node name="main" parent="." unique_id=825403201 instance=ExtResource("2_iq5l4")]
+
+[connection signal="pressed" from="Contenedor/BotonJugar" to="." method="_on_boton_jugar_pressed"]
+[connection signal="pressed" from="Contenedor/BotonSalir" to="." method="_on_boton_salir_pressed"]

@@ -37,38 +37,31 @@ func _physics_process(_delta):
 
 # Esta función detecta los clicks del mouse sobre el CollisionShape3D del robot
 func _input_event(_camera, event, _click_position, _normal, _shape_idx):
-	# 1. Si el robot ya se está borrando o no está en el mapa, salimos ya mismo
+	# Si el robot ya se está borrando o no está en el mapa, salimos
 	if is_queued_for_deletion() or not is_inside_tree():
 		return
 
-	# 2. ¿El jugador está haciendo click (apretando el botón)?
+	# ¿El jugador hizo click (apretando el botón)?
 	if event is InputEventMouseButton and event.pressed:
 		
-		# Guardamos la posición AL PRINCIPIO de todo, cuando el robot está 100% vivo
-		var posicion_actual = global_transform.origin
-		var interfaz = get_node_or_null("/root/main/Interfaz")
-		
-		# --- CLICK IZQUIERDO: SANO ---
+		# --- CLICK IZQUIERDO ÚNICO: Se usa para DESCARTAR/DESTRUIR el robot ---
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			if es_bueno:
-				if interfaz: interfaz.sumar_punto()
-			else:
-				if interfaz: interfaz.sumar_error()
+			var posicion_actual = global_transform.origin
+			var interfaz = get_node_or_null("/root/main/Interfaz")
 			
-			# Borramos al final de la acción
-			queue_free()
-			
-		# --- CLICK DERECHO: ROTO ---
-		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			if not es_bueno:
+				# ¡Correcto! Destruiste un robot roto antes de que se escape
+				print("¡Correcto! Robot defectuoso destruido. (+1 Punto)")
 				if interfaz: interfaz.sumar_punto()
 			else:
+				# ¡Error! Rompiste un robot que estaba perfecto
+				print("¡Error! Destruiste un robot SANO.(+1 Error)")
 				if interfaz: interfaz.sumar_error()
 			
-			# Creamos la explosión usando la variable segura que guardamos arriba
+			# Efecto de explosión (vuela en cubitos low-poly)
 			var nueva_explosion = explosion_scene.instantiate()
 			nueva_explosion.global_position = posicion_actual + Vector3(0, 6.0, -4)
 			get_tree().current_scene.add_child(nueva_explosion)
 			
-			# Borramos al final de la acción
+			# Borramos el robot del juego
 			queue_free()
