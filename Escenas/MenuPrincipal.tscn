@@ -4,6 +4,38 @@
 [ext_resource type="FontFile" uid="uid://bfqkeu8rw4j68" path="res://Fuentes/Perfect DOS VGA 437.ttf" id="2_i4iwo"]
 [ext_resource type="PackedScene" uid="uid://doi3wy70dtlme" path="res://Escenas/main.tscn" id="2_iq5l4"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4iwo"]
+bg_color = Color(0, 0, 0, 0.94509804)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22352941, 1, 0.078431375, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shwl5"]
+bg_color = Color(0.22352941, 1, 0.078431375, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdyll"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22352941, 1, 0.078431375, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qwxx"]
+bg_color = Color(0.22352941, 1, 0.078431375, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
 [node name="MenuPrincipal" type="Control" unique_id=1701189064]
 layout_mode = 3
 anchors_preset = 15
@@ -17,9 +49,9 @@ script = ExtResource("1_20qv4")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2995625
-anchor_top = 0.39031482
-anchor_right = 0.70056254
-anchor_bottom = 0.61431485
+anchor_top = 0.30080867
+anchor_right = 0.70403475
+anchor_bottom = 0.703821
 offset_left = -0.0960083
 offset_top = 0.07598877
 offset_right = -0.048034668
@@ -48,22 +80,26 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
 theme_override_colors/font_focus_color = Color(0.22352941, 1, 0.078431375, 1)
-theme_override_colors/font_pressed_color = Color(0.22352941, 0.63529414, 0.078431375, 1)
-theme_override_colors/font_hover_color = Color(0.22352941, 1, 0.078431375, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_i4iwo")
 theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_i4iwo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_shwl5")
 text = "Iniciar Turno"
 
 [node name="BotonSalir" type="Button" parent="Contenedor" unique_id=1132170496]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
 theme_override_colors/font_focus_color = Color(0.22352941, 1, 0.078431375, 1)
-theme_override_colors/font_pressed_color = Color(0.22352941, 0.63529414, 0.078431375, 1)
-theme_override_colors/font_hover_color = Color(0.22352941, 1, 0.078431375, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_pressed_color = Color(0.0003714736, 0.0031248627, 7.641922e-05, 1)
+theme_override_colors/font_hover_color = Color(1.949253e-05, 0.00059860974, 1.3395766e-09, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0005782729, 0.017758746, 4.061032e-08, 1)
 theme_override_fonts/font = ExtResource("2_i4iwo")
 theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_gdyll")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0qwxx")
 text = "Salir"
 
 [node name="main" parent="." unique_id=825403201 instance=ExtResource("2_iq5l4")]

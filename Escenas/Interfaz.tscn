@@ -3,6 +3,70 @@
 [ext_resource type="Script" uid="uid://c7fpde8f7dtb0" path="res://scripts/Interfaz.gd" id="1_peb2f"]
 [ext_resource type="FontFile" uid="uid://bfqkeu8rw4j68" path="res://Fuentes/Perfect DOS VGA 437.ttf" id="2_cswj6"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cswj6"]
+bg_color = Color(0.00035290723, 0.010837806, 2.3689354e-08, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22352941, 1, 0.078431375, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gr0k6"]
+bg_color = Color(0.22352941, 1, 0.078431375, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyldm"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22352941, 1, 0.078431375, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cm7ul"]
+bg_color = Color(0.22352941, 1, 0.078431375, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykoxn"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22352941, 1, 0.078431375, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0f55"]
+bg_color = Color(0.22352941, 1, 0.078431375, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfk14"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22352941, 1, 0.078431375, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wlqyy"]
+bg_color = Color(0.22352941, 1, 0.078431375, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
 [node name="Interfaz" type="CanvasLayer" unique_id=1239421756]
 process_mode = 3
 script = ExtResource("1_peb2f")
@@ -84,11 +148,13 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
 theme_override_colors/font_focus_color = Color(0.22352941, 1, 0.078431375, 1)
-theme_override_colors/font_pressed_color = Color(0.22352941, 0.63529414, 0.078431375, 1)
-theme_override_colors/font_hover_color = Color(0.22352941, 1, 0.078431375, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_cswj6")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_cswj6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gr0k6")
 text = "Reiniciar Turno"
 
 [node name="Mira" type="ColorRect" parent="." unique_id=750352229]
@@ -128,31 +194,34 @@ color = Color(0, 0, 0, 0.5764706)
 [node name="BotonReanudar" type="Button" parent="PantallaPausa" unique_id=1286791758]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.43114588
-anchor_top = 0.22685185
-anchor_right = 0.53152776
-anchor_bottom = 0.32114813
-offset_left = 0.3199463
-offset_right = -0.32000732
-offset_bottom = -0.10400009
+anchor_left = 0.41000003
+anchor_top = 0.467
+anchor_right = 0.59000003
+anchor_bottom = 0.531
+offset_left = -0.32003784
+offset_top = -0.115997314
+offset_right = 0.3199463
+offset_bottom = 1.4119873
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
 theme_override_colors/font_focus_color = Color(0.22352941, 1, 0.078431375, 1)
-theme_override_colors/font_pressed_color = Color(0.22352941, 0.63529414, 0.078431375, 1)
-theme_override_colors/font_hover_color = Color(0.22352941, 1, 0.078431375, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_cswj6")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_fyldm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cm7ul")
 text = "Reanudar"
-metadata/_edit_use_anchors_ = true
 
 [node name="BotonReiniciarPausa" type="Button" parent="PantallaPausa" unique_id=21739998]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4042396
-anchor_top = 0.4752284
-anchor_right = 0.5619063
-anchor_bottom = 0.52322847
+anchor_left = 0.7844479
+anchor_top = 0.93819135
+anchor_right = 0.9915938
+anchor_bottom = 0.98773456
 offset_left = 0.315979
 offset_top = 0.052001953
 offset_right = -0.31604004
@@ -161,32 +230,36 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
 theme_override_colors/font_focus_color = Color(0.22352941, 1, 0.078431375, 1)
-theme_override_colors/font_pressed_color = Color(0.22352941, 0.63529414, 0.078431375, 1)
-theme_override_colors/font_hover_color = Color(0.22352941, 1, 0.078431375, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_cswj6")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ykoxn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e0f55")
 text = "Reiniciar fabrica"
 metadata/_edit_use_anchors_ = true
 
 [node name="BotonVolverMenu" type="Button" parent="PantallaPausa" unique_id=1311722951]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0024236043
-anchor_top = 0.91820985
-anchor_right = 0.20156945
-anchor_bottom = 0.9939877
+anchor_left = 0.013708327
+anchor_top = 0.90123457
+anchor_right = 0.23629168
+anchor_bottom = 0.97701234
 offset_left = 0.20800781
 offset_right = -0.20800781
 offset_bottom = -0.10400009
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
 theme_override_colors/font_focus_color = Color(0.22352941, 1, 0.078431375, 1)
-theme_override_colors/font_pressed_color = Color(0.22352941, 0.63529414, 0.078431375, 1)
-theme_override_colors/font_hover_color = Color(0.22352941, 1, 0.078431375, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_cswj6")
 theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_vfk14")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wlqyy")
 text = "Volver al menu"
 metadata/_edit_use_anchors_ = true
 
