@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://od3wa6d1sirp" path="res://menu_principal.gd" id="1_20qv4"]
 [ext_resource type="FontFile" uid="uid://bfqkeu8rw4j68" path="res://Fuentes/Perfect DOS VGA 437.ttf" id="2_i4iwo"]
 [ext_resource type="PackedScene" uid="uid://doi3wy70dtlme" path="res://Escenas/main.tscn" id="2_iq5l4"]
+[ext_resource type="Script" uid="uid://cqbyjm60hsidu" path="res://scripts/titulo.gd" id="3_gdyll"]
+[ext_resource type="Script" uid="uid://bttqpc12nskmw" path="res://scripts/efecto_vhs.gd" id="4_0qwxx"]
+[ext_resource type="Texture2D" uid="uid://gt0uxn3xi1rc" path="res://black-and-white-striped-abstract-background-overlay-motion-effect-graphic-illustration-with-transparent-background-png.webp" id="5_0qwxx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4iwo"]
 bg_color = Color(0, 0, 0, 0.94509804)
@@ -45,39 +48,80 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_20qv4")
 
+[node name="main" parent="." unique_id=825403201 instance=ExtResource("2_iq5l4")]
+
+[node name="efecto_vhs" type="TextureRect" parent="." unique_id=2111640643]
+self_modulate = Color(1, 1, 1, 0.19607843)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_0qwxx")
+script = ExtResource("4_0qwxx")
+opacidad_base = 0.4
+
+[node name="TituloLuz" type="Label" parent="." unique_id=2046300641]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.16100001
+anchor_top = 0.19800001
+anchor_right = 0.845
+anchor_bottom = 0.35200003
+offset_left = -0.47201538
+offset_top = -0.3040161
+offset_right = -0.44006348
+offset_bottom = -0.09602356
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.99607843)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_i4iwo")
+theme_override_font_sizes/font_size = 100
+text = "Falla de Orden"
+script = ExtResource("3_gdyll")
+
+[node name="Titulo_Borde" type="Label" parent="." unique_id=385134375]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.16100001
+anchor_top = 0.19800001
+anchor_right = 0.845
+anchor_bottom = 0.35200003
+offset_left = -0.47201538
+offset_top = -0.3040161
+offset_right = -0.44006348
+offset_bottom = -0.09602356
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 0)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("2_i4iwo")
+theme_override_font_sizes/font_size = 100
+text = "Falla de Orden"
+
 [node name="Contenedor" type="VBoxContainer" parent="." unique_id=1634351332]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.2995625
-anchor_top = 0.30080867
-anchor_right = 0.70403475
-anchor_bottom = 0.703821
-offset_left = -0.0960083
-offset_top = 0.07598877
-offset_right = -0.048034668
-offset_bottom = -0.07601929
+anchor_left = 0.26043054
+anchor_top = 0.5371976
+anchor_right = 0.744
+anchor_bottom = 0.687
+offset_left = -5.0160065
+offset_top = -0.104034424
+offset_right = -0.088012695
+offset_bottom = -0.17602539
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 metadata/_edit_use_anchors_ = true
 
-[node name="Titulo" type="Label" parent="Contenedor" unique_id=2046300641]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.99607843)
-theme_override_fonts/font = ExtResource("2_i4iwo")
-theme_override_font_sizes/font_size = 42
-text = "Falla de Orden"
-
-[node name="otro espacio jeje" type="Label" parent="Contenedor" unique_id=86230253]
-layout_mode = 2
-
-[node name="espaciomjeje" type="Label" parent="Contenedor" unique_id=1177331183]
-layout_mode = 2
-
 [node name="BotonJugar" type="Button" parent="Contenedor" unique_id=416063347]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
 theme_override_colors/font_focus_color = Color(0.22352941, 1, 0.078431375, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -101,8 +145,6 @@ theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_gdyll")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0qwxx")
 text = "Salir"
-
-[node name="main" parent="." unique_id=825403201 instance=ExtResource("2_iq5l4")]
 
 [connection signal="pressed" from="Contenedor/BotonJugar" to="." method="_on_boton_jugar_pressed"]
 [connection signal="pressed" from="Contenedor/BotonSalir" to="." method="_on_boton_salir_pressed"]
