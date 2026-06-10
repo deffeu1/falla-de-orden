@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://doi3wy70dtlme" path="res://Escenas/main.tscn" id="2_iq5l4"]
 [ext_resource type="Script" uid="uid://cqbyjm60hsidu" path="res://scripts/titulo.gd" id="3_gdyll"]
 [ext_resource type="Script" uid="uid://bttqpc12nskmw" path="res://scripts/efecto_vhs.gd" id="4_0qwxx"]
-[ext_resource type="Texture2D" uid="uid://gt0uxn3xi1rc" path="res://black-and-white-striped-abstract-background-overlay-motion-effect-graphic-illustration-with-transparent-background-png.webp" id="5_0qwxx"]
+[ext_resource type="Texture2D" uid="uid://gt0uxn3xi1rc" path="res://Vhs/black-and-white-striped-abstract-background-overlay-motion-effect-graphic-illustration-with-transparent-background-png.webp" id="5_0qwxx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4iwo"]
 bg_color = Color(0, 0, 0, 0.94509804)

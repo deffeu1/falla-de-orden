@@ -8,6 +8,7 @@ var errores : int = 0
 @onready var pantalla_game_over = $PantallaGameOver
 @onready var texto_puntaje_final = $PantallaGameOver/ContenedorGO/TextoPuntajeFinal
 @onready var pantalla_pausa = $PantallaPausa
+
 func _ready():
 	# Nos aseguramos de que el cartel empiece oculto al reiniciar
 	pantalla_game_over.visible = false
@@ -27,13 +28,16 @@ func sumar_error():
 	if errores >= max_errores:
 		game_over()
 
+# --- FUNCIÓN CORREGIDA CON ACCESO ÚNICO (%) ---
 func actualizar_pantalla():
-	var texto_puntos = get_node_or_null("TextoPuntos")
-	var texto_errores = get_node_or_null("TextoErrores")
+	# Usamos get_node_or_null con el símbolo % para encontrarlos en cualquier contenedor
+	var texto_puntos = get_node_or_null("%TextoPuntos")
+	var texto_errores = get_node_or_null("%TextoErrores")
 	
 	if texto_puntos and texto_errores:
-		texto_puntos.text = "Puntos: " + str(puntos)
-		texto_errores.text = "Errores: " + str(errores) + " / " + str(max_errores)
+		# Formato estilo terminal: Rellena con ceros a la izquierda (ej: PRODUCCION: 0005)
+		texto_puntos.text = "PRODUCCION: %04d" % puntos
+		texto_errores.text = "FALLAS DE ORDEN: " + str(errores) + " / " + str(max_errores)
 
 func game_over():
 	pantalla_game_over.visible = true
@@ -51,6 +55,7 @@ func _on_boton_reiniciar_pressed():
 	print("¡Click detectado! Reiniciando fábrica...") # <- Agregamos este print para probar
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+
 func _input(event):
 	# Si presionás ESCAPE y NO perdiste (Game Over invisible)
 	if event.is_action_pressed("ui_cancel") and not pantalla_game_over.visible:
@@ -69,6 +74,7 @@ func toggle_pausa():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)   # Mostramos el mouse para clickear botones
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Ocultamos el mouse para seguir jugando
+
 # 1. BOTÓN REANUDAR
 func _on_boton_reanudar_pressed():
 	toggle_pausa() # Cerramos la pausa y devolvemos el mouse a la normalidad

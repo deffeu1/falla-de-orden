@@ -71,39 +71,6 @@ border_color = Color(0, 0, 0, 1)
 process_mode = 3
 script = ExtResource("1_peb2f")
 
-[node name="TextoPuntos" type="Label" parent="." unique_id=287770245]
-anchors_preset = -1
-anchor_left = 0.009000001
-anchor_top = 0.022000002
-anchor_right = 0.080000006
-anchor_bottom = 0.062000003
-offset_left = 1.631999
-offset_top = -0.25600147
-offset_right = -0.16000366
-offset_bottom = -0.1760025
-size_flags_horizontal = 0
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
-theme_override_fonts/font = ExtResource("2_cswj6")
-theme_override_font_sizes/font_size = 27
-text = "Puntos: 0"
-
-[node name="TextoErrores" type="Label" parent="." unique_id=1353124679]
-anchors_preset = -1
-anchor_left = 0.011000001
-anchor_top = 0.071
-anchor_right = 0.097
-anchor_bottom = 0.105000004
-offset_left = 0.32799911
-offset_top = -0.008003235
-offset_right = -0.7440033
-offset_bottom = 0.9599991
-theme_override_colors/font_color = Color(0.85633475, 0.12699533, 0.17421925, 1)
-theme_override_fonts/font = ExtResource("2_cswj6")
-theme_override_font_sizes/font_size = 27
-text = "Errores: 0 / 3"
-metadata/_edit_use_anchors_ = true
-
 [node name="PantallaGameOver" type="ColorRect" parent="." unique_id=1223247895]
 process_mode = 3
 visible = false
@@ -174,6 +141,7 @@ mouse_filter = 2
 
 [node name="PantallaPausa" type="Control" parent="." unique_id=1676515975]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -260,6 +228,33 @@ theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_vfk14")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wlqyy")
 text = "Volver al menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1400054986]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=581119134]
+layout_mode = 2
+
+[node name="TextoPuntos" type="Label" parent="MarginContainer/HBoxContainer" unique_id=287770245]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_color = Color(0.22352941, 1, 0.078431375, 1)
+theme_override_fonts/font = ExtResource("2_cswj6")
+theme_override_font_sizes/font_size = 27
+text = "PRODUCCION: 0000"
+
+[node name="TextoErrores" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1353124679]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0.85633475, 0.12699533, 0.17421925, 1)
+theme_override_fonts/font = ExtResource("2_cswj6")
+theme_override_font_sizes/font_size = 27
+text = "FALLAS DE ORDEN: 0 / 3"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="PantallaGameOver/ContenedorGO/BotonReiniciar" to="." method="_on_boton_reiniciar_pressed"]
