@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c1s1n8m1wbax4" path="res://Escenas/Interfaz.tscn" id="2_7xwpo"]
 [ext_resource type="Script" uid="uid://c8qrupiyd3xwk" path="res://scripts/camera_3d.gd" id="4_2ia52"]
 [ext_resource type="Script" uid="uid://cjm6gehxlkglg" path="res://scripts/luz_titilante.gd" id="4_7xwpo"]
+[ext_resource type="PackedScene" uid="uid://c266dyjev36i1" path="res://escenarios/atril.glb" id="6_crgrh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0kh0y"]
 size = Vector3(8.840698, 12.341339, 1)
@@ -16,6 +17,12 @@ fog_enabled = true
 fog_light_color = Color(0.23137255, 0.23921569, 0.23529412, 1)
 fog_density = 0.02
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_crgrh"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s2ilj"]
+size = Vector3(0.5, 0.5, 0.5)
+
 [node name="main" type="Node3D" unique_id=825403201]
 script = ExtResource("1_vt1rs")
 
@@ -25,12 +32,10 @@ script = ExtResource("1_vt1rs")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9758934, 1.1920929e-07, -0.6448052)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1095965636]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.908997, 6.8703775, 0.5858872)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 26.688087, 6.8703775, 0.5858872)
 current = true
-fov = 35.1
+fov = 37.849285
 size = 14.108
-near = 0.11
-far = 3997.25
 script = ExtResource("4_2ia52")
 limite_horizontal = 35.0
 limite_vertical = 20.0
@@ -88,5 +93,38 @@ spot_attenuation = -0.67
 spot_angle = 32.930214
 script = ExtResource("4_7xwpo")
 
+[node name="LuzTitilante4" type="SpotLight3D" parent="." unique_id=1080627084]
+transform = Transform3D(0.98460096, -6.128392e-10, 0.17481689, -0.17481689, -3.4516234e-09, 0.98460096, 0, -1, -3.5056065e-09, 20.848835, 13.512178, 0.25019455)
+light_color = Color(0.9366716, 0.9806898, 0.8440831, 1)
+spot_range = 17.479696
+spot_attenuation = -0.67
+spot_angle = 32.930214
+spot_angle_attenuation = 2.8284268
+script = ExtResource("4_7xwpo")
+energia_maxima = 2.0
+
+[node name="atril" parent="." unique_id=2045522414 instance=ExtResource("6_crgrh")]
+transform = Transform3D(-6.9938224e-08, 0, -1.6, 0, 1.6, 0, 1.6, 0, -6.9938224e-08, 18.233273, 1.4395933, 0.52483606)
+
+[node name="Boton_Rojo" parent="atril" index="1" unique_id=677150779]
+transform = Transform3D(0.9083024, 0, -1.0658141e-14, 0, 1, 0, 0, 0, 0.93593544, -0.6205478, 1.6476258, -0.054224014)
+
+[node name="AreaRojo" type="Area3D" parent="atril/Boton_Rojo" index="0" unique_id=485818949]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="atril/Boton_Rojo/AreaRojo" unique_id=1318334021]
+transform = Transform3D(1.0000007, 0, 7.1054274e-15, 0, 1.0000007, 0, -2.4868996e-14, 0, 1, -0.017169267, -0.08248544, -0.116493225)
+shape = SubResource("BoxShape3D_crgrh")
+
+[node name="Boton_Verde" parent="atril" index="2" unique_id=1472810766]
+transform = Transform3D(0.9083024, 0, -7.1054274e-15, 0, 1, 0, 0, 0, 0.93593544, 0.52776974, 1.6476258, -0.057614326)
+
+[node name="AreaVerde" type="Area3D" parent="atril/Boton_Verde" index="0" unique_id=1578131740]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="atril/Boton_Verde/AreaVerde" unique_id=1050945133]
+transform = Transform3D(1.0000005, 0, 7.1054274e-15, 0, 1.0000005, 0, -1.4210855e-14, 0, 1, 0, -0.08495426, -0.09370613)
+shape = SubResource("BoxShape3D_s2ilj")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="ZonaFuga" to="." method="_on_zona_fuga_body_entered"]
+
+[editable path="atril"]

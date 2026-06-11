@@ -234,9 +234,11 @@ metadata/_edit_use_anchors_ = true
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=581119134]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="TextoPuntos" type="Label" parent="MarginContainer/HBoxContainer" unique_id=287770245]
 unique_name_in_owner = true
