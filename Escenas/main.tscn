@@ -107,21 +107,21 @@ energia_maxima = 2.0
 transform = Transform3D(-6.9938224e-08, 0, -1.6, 0, 1.6, 0, 1.6, 0, -6.9938224e-08, 18.233273, 1.4395933, 0.52483606)
 
 [node name="Boton_Rojo" parent="atril" index="1" unique_id=677150779]
-transform = Transform3D(0.9083024, 0, -1.0658141e-14, 0, 1, 0, 0, 0, 0.93593544, -0.6205478, 1.6476258, -0.054224014)
+transform = Transform3D(0.9083024, 0, -1.0658141e-14, 0, 1, 0, 0, 0, 0.93593544, -0.60895723, 1.6476258, -0.009184837)
 
 [node name="AreaRojo" type="Area3D" parent="atril/Boton_Rojo" index="0" unique_id=485818949]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="atril/Boton_Rojo/AreaRojo" unique_id=1318334021]
-transform = Transform3D(1.0000007, 0, 7.1054274e-15, 0, 1.0000007, 0, -2.4868996e-14, 0, 1, -0.017169267, -0.08248544, -0.116493225)
+transform = Transform3D(1.0000013, 0, 7.1054274e-15, 0, 1.0000013, 0, -3.5527137e-14, 0, 1, 0.0096723735, -0.08248544, -0.1403389)
 shape = SubResource("BoxShape3D_crgrh")
 
 [node name="Boton_Verde" parent="atril" index="2" unique_id=1472810766]
-transform = Transform3D(0.9083024, 0, -7.1054274e-15, 0, 1, 0, 0, 0, 0.93593544, 0.52776974, 1.6476258, -0.057614326)
+transform = Transform3D(0.9083024, 0, -1.0658141e-14, 0, 1, 0, 0, 0, 0.93593544, 0.5278015, 1.6476258, 0.00017929077)
 
 [node name="AreaVerde" type="Area3D" parent="atril/Boton_Verde" index="0" unique_id=1578131740]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="atril/Boton_Verde/AreaVerde" unique_id=1050945133]
-transform = Transform3D(1.0000005, 0, 7.1054274e-15, 0, 1.0000005, 0, -1.4210855e-14, 0, 1, 0, -0.08495426, -0.09370613)
+transform = Transform3D(1.0000008, 0, 7.1054274e-15, 0, 1.0000008, 0, -2.842171e-14, 0, 1, -0.0131595135, -0.08495426, -0.15739536)
 shape = SubResource("BoxShape3D_s2ilj")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

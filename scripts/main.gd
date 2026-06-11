@@ -44,6 +44,10 @@ func registrar_robot_en_espera(robot):
 # --- SEÑAL DEL BOTÓN VERDE (DEJAR PASAR) ---
 func _on_boton_verde_area_3d_input_event(camera, event, event_position, normal, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		
+		# 🎬 ANIMACIÓN: Apunta correctamente a través del nodo "atril"
+		animar_boton($atril/Boton_Verde)
+		
 		if robot_actual and is_instance_valid(robot_actual):
 			print("🟢 Botón VERDE presionado: Dejando pasar robot...")
 			
@@ -58,7 +62,6 @@ func _on_boton_verde_area_3d_input_event(camera, event, event_position, normal, 
 			robot_actual = null # Puesto libre para el que viene atrás
 			
 			# ─── REANUDAR FÁBRICA ───
-			# Como liberamos un puesto, nos aseguramos de que el Timer vuelva a arrancar
 			if timer and timer.is_stopped():
 				print("♻️ Espacio liberado en la fila. Reanudando Timer...")
 				timer.start()
@@ -67,6 +70,10 @@ func _on_boton_verde_area_3d_input_event(camera, event, event_position, normal, 
 # --- SEÑAL DEL BOTÓN ROJO (DESTRUIR) ---
 func _on_boton_rojo_area_3d_input_event(camera, event, event_position, normal, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		
+		# 🎬 ANIMACIÓN: Apunta correctamente a través del nodo "atril"
+		animar_boton($atril/Boton_Rojo)
+		
 		if robot_actual and is_instance_valid(robot_actual):
 			print("🔴 Botón ROJO presionado: Activando trampa de destrucción...")
 			
@@ -74,7 +81,6 @@ func _on_boton_rojo_area_3d_input_event(camera, event, event_position, normal, s
 			robot_actual = null # Puesto libre
 			
 			# ─── REANUDAR FÁBRICA ───
-			# El robot explotó, por ende la cola bajó a 3. Arrancamos el Timer.
 			if timer and timer.is_stopped():
 				print("♻️ Espacio liberado por destrucción. Reanudando Timer...")
 				timer.start()
@@ -85,3 +91,35 @@ func _on_zona_fuga_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D: 
 		print("Robot viejo removido del mapa al llegar al final.")
 		body.queue_free()
+
+
+# Variable nueva para recordar la posición original real de los botones de fábrica
+var posiciones_originales : Dictionary = {}
+
+# --- FUNCIÓN: ANIMACIÓN DE FEEDBACK VISUAL (CORREGIDA ANTI-CLICKS RÁPIDOS) ---
+func animar_boton(nodo_boton: Node3D):
+	if not nodo_boton:
+		return
+		
+	# 1. Si es la primera vez que clickeamos este botón, guardamos su posición verdadera de fábrica
+	if not posiciones_originales.has(nodo_boton):
+		posiciones_originales[nodo_boton] = nodo_boton.position
+		
+	var pos_original = posiciones_originales[nodo_boton]
+	
+	# 2. SISTEMA ANTI-SPAM: Buscamos si el botón ya tiene un Tween corriendo y lo destruimos
+	# Esto evita que el botón se quede "trabado" abajo si lo clickeás muchas veces seguidas
+	var tween_viejo = nodo_boton.get_meta("mi_tween", null)
+	if tween_viejo and tween_viejo.is_valid():
+		tween_viejo.kill() # Matamos la animación anterior a mitad de camino
+	
+	# 3. Creamos la nueva animación limpia
+	var tween = create_tween()
+	nodo_boton.set_meta("mi_tween", tween) # Guardamos este tween en el botón para poder matarlo si hay otro click
+	
+	# Calculamos el hundimiento siempre en base a la posición original real
+	var pos_hundido = pos_original + Vector3(0, -0.1, 0)
+	
+	# Ejecutamos el hundimiento rápido y el regreso elástico forzado a la posición de fábrica
+	tween.tween_property(nodo_boton, "position", pos_hundido, 0.3).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(nodo_boton, "position", pos_original, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
