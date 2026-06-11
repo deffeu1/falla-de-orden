@@ -19,7 +19,7 @@ shader_parameter/cantidad_lineas = 20.0
 render_priority = 0
 shader = ExtResource("4_s2ilj")
 shader_parameter/color_cinta = Color(0.05, 0.05, 0.05, 1)
-shader_parameter/velocidad = Vector2(0, 0.2)
+shader_parameter/velocidad = Vector2(0, 0.3)
 shader_parameter/cantidad_lineas = 20.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0kh0y"]
@@ -129,7 +129,7 @@ script = ExtResource("4_7xwpo")
 energia_maxima = 2.0
 
 [node name="atril" parent="." unique_id=2045522414 instance=ExtResource("6_crgrh")]
-transform = Transform3D(-6.9938224e-08, 0, -1.6, 0, 1.6, 0, 1.6, 0, -6.9938224e-08, 18.233273, 1.4395933, 0.52483606)
+transform = Transform3D(-6.9938224e-08, 0, -1.6, 0, 1.6, 0, 1.6, 0, -6.9938224e-08, 18.47595, 1.4395933, 0.6320615)
 
 [node name="Boton_Rojo" parent="atril" index="1" unique_id=677150779]
 transform = Transform3D(0.9083024, 0, -1.0658141e-14, 0, 1, 0, 0, 0, 0.93593544, -0.60895723, 1.6476258, -0.009184837)
