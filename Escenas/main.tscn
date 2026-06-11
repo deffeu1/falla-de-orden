@@ -16,6 +16,10 @@ background_color = Color(0.23217407, 0.24081784, 0.23667395, 1)
 fog_enabled = true
 fog_light_color = Color(0.23137255, 0.23921569, 0.23529412, 1)
 fog_density = 0.02
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(0, 0.6117647, 0, 1)
+volumetric_fog_emission = Color(0.07123137, 0.07123139, 0.07123137, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_crgrh"]
 size = Vector3(0.5, 0.5, 0.5)
@@ -60,7 +64,7 @@ autostart = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 56.027847)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaFuga" unique_id=1986784538]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81336117, 7.749715, -33.98314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81336117, 7.749715, -32.639954)
 shape = SubResource("BoxShape3D_0kh0y")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1893770486]

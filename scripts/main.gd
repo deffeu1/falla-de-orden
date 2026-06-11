@@ -42,20 +42,20 @@ func registrar_robot_en_espera(robot):
 
 
 # --- SEÑAL DEL BOTÓN VERDE (DEJAR PASAR) ---
-func _on_boton_verde_area_3d_input_event(camera, event, event_position, normal, shape_idx):
+func _on_boton_verde_area_3d_input_event(_camera, event, _event_position, _normal, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		
 		# 🎬 ANIMACIÓN: Apunta correctamente a través del nodo "atril"
 		animar_boton($atril/Boton_Verde)
 		
 		if robot_actual and is_instance_valid(robot_actual):
-			print("🟢 Botón VERDE presionado: Dejando pasar robot...")
+			print("boton verde presionado")
 			
 			if robot_actual.es_bueno:
-				print("¡Punto! Despachaste un robot sano.")
+				print("robot sano aprobado")
 				if interfaz: interfaz.sumar_punto()
 			else:
-				print("¡Falla! Dejaste pasar una unidad dañada.")
+				print("dejaste pasar un robot malo")
 				if interfaz: interfaz.sumar_error()
 			
 			robot_actual.dejar_pasar()
@@ -63,19 +63,19 @@ func _on_boton_verde_area_3d_input_event(camera, event, event_position, normal, 
 			
 			# ─── REANUDAR FÁBRICA ───
 			if timer and timer.is_stopped():
-				print("♻️ Espacio liberado en la fila. Reanudando Timer...")
+				print("generando otro robot")
 				timer.start()
 
 
 # --- SEÑAL DEL BOTÓN ROJO (DESTRUIR) ---
-func _on_boton_rojo_area_3d_input_event(camera, event, event_position, normal, shape_idx):
+func _on_boton_rojo_area_3d_input_event(_camera, event, _event_position, _normal, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		
 		# 🎬 ANIMACIÓN: Apunta correctamente a través del nodo "atril"
 		animar_boton($atril/Boton_Rojo)
 		
 		if robot_actual and is_instance_valid(robot_actual):
-			print("🔴 Botón ROJO presionado: Activando trampa de destrucción...")
+			print("boton rojo presionado")
 			
 			robot_actual.destruir() 
 			robot_actual = null # Puesto libre
@@ -89,7 +89,7 @@ func _on_boton_rojo_area_3d_input_event(camera, event, event_position, normal, s
 # --- ZONA DE FUGA REFORMADA ---
 func _on_zona_fuga_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D: 
-		print("Robot viejo removido del mapa al llegar al final.")
+		print("robot viejo removido del mapa al llegar al final.")
 		body.queue_free()
 
 
