@@ -107,9 +107,11 @@ func animar_boton(nodo_boton: Node3D):
 		
 	var pos_original = posiciones_originales[nodo_boton]
 	
-	# 2. SISTEMA ANTI-SPAM: Buscamos si el botón ya tiene un Tween corriendo y lo destruimos
-	# Esto evita que el botón se quede "trabado" abajo si lo clickeás muchas veces seguidas
-	var tween_viejo = nodo_boton.get_meta("mi_tween", null)
+	# 2. SISTEMA ANTI-SPAM CORREGIDO: Usamos has_meta para evitar el error interno de Godot en el primer click
+	var tween_viejo = null
+	if nodo_boton.has_meta("mi_tween"):
+		tween_viejo = nodo_boton.get_meta("mi_tween")
+		
 	if tween_viejo and tween_viejo.is_valid():
 		tween_viejo.kill() # Matamos la animación anterior a mitad de camino
 	

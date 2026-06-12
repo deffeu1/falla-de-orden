@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@onready var explosion_scene = preload("res://Escenas/Explosion.tscn")
+@onready var explosion_scene = preload("res://Escenas/explosion.tscn")
 
 @export var velocidad : float = 1.5
 @export var posicion_freno_z : float = 1.8 # Coordenada Z de tu luz
